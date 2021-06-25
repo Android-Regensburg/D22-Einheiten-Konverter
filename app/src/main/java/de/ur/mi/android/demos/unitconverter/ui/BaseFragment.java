@@ -26,7 +26,7 @@ import de.ur.mi.android.demos.unitconverter.units.Quantity;
 import de.ur.mi.android.demos.unitconverter.units.Unit;
 import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     private final static double DEFAULT_VALUE = 1.0;
     private final Unit[] units;
