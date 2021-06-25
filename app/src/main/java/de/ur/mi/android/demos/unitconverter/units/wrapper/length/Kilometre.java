@@ -1,21 +1,21 @@
 package de.ur.mi.android.demos.unitconverter.units.wrapper.length;
 
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.Unit;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class Kilometre  extends UnitWrapper implements SICompatibleUnit {
+public class Kilometre extends SIValue {
 
     public Kilometre(double value) {
-        super(value, "km");
+        super(value, Unit.KILOMETRE);
     }
 
     @Override
-    public UnitWrapper toBaseUnit(UnitWrapper unitWrapper) {
-        return new Meter(this.value * 1000);
+    public SIValue toBaseValue() {
+        return new Metre(this.value * 1000);
     }
 
     @Override
-    public UnitWrapper fromBaseUnit(UnitWrapper unitWrapper) {
-        return new Kilometre(unitWrapper.value / 1000);
+    public SIValue fromBaseValue(SIValue base) {
+        return new Kilometre(base.value / 1000);
     }
 }

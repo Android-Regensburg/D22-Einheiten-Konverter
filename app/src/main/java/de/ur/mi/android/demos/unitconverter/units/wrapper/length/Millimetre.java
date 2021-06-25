@@ -1,21 +1,23 @@
 package de.ur.mi.android.demos.unitconverter.units.wrapper.length;
 
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.Unit;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.length.Centimetre;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.length.Metre;
 
-public class Millimetre extends UnitWrapper implements SICompatibleUnit {
+public class Millimetre extends SIValue {
 
     public Millimetre(double value) {
-        super(value, "mm");
+        super(value, Unit.MILLIMETRE);
     }
 
     @Override
-    public UnitWrapper toBaseUnit(UnitWrapper unitWrapper) {
-        return new Meter(this.value / 1000);
+    public SIValue toBaseValue() {
+        return new Metre(this.value / 1000);
     }
 
     @Override
-    public UnitWrapper fromBaseUnit(UnitWrapper unitWrapper) {
-        return new Millimetre(unitWrapper.value * 1000);
+    public SIValue fromBaseValue(SIValue base) {
+        return new Millimetre(base.value * 1000);
     }
 }

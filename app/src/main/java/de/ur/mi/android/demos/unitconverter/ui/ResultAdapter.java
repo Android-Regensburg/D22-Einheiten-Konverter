@@ -1,5 +1,6 @@
 package de.ur.mi.android.demos.unitconverter.ui;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,19 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.ur.mi.android.demos.unitconverter.R;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapterViewHolder> {
 
-    private ArrayList<UnitWrapper> results;
+    private List<SIValue> results;
 
     public ResultAdapter() {
         this.results = new ArrayList<>();
     }
 
-    public void setResults(ArrayList<UnitWrapper> results) {
+    public void setResults(List<SIValue> results) {
         this.results = results;
         this.notifyDataSetChanged();
     }
@@ -34,7 +36,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapterViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ResultAdapterViewHolder holder, int position) {
-        UnitWrapper result = results.get(position);
+        SIValue result = results.get(position);
         holder.bindView(result);
     }
 

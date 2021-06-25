@@ -1,21 +1,21 @@
 package de.ur.mi.android.demos.unitconverter.units.wrapper.mass;
 
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.Unit;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class Milligram extends UnitWrapper implements SICompatibleUnit {
+public class Milligram extends SIValue {
 
     public Milligram(double value) {
-        super(value, "mg");
+        super(value, Unit.MILLIGRAM);
     }
 
     @Override
-    public UnitWrapper toBaseUnit(UnitWrapper unitWrapper) {
-        return new Kilogram(this.value / 1000);
+    public SIValue toBaseValue() {
+        return new Kilogram(this.value / 1000000);
     }
 
     @Override
-    public UnitWrapper fromBaseUnit(UnitWrapper unitWrapper) {
-        return new Milligram(unitWrapper.value * 1000);
+    public SIValue fromBaseValue(SIValue base) {
+        return new Milligram(base.value * 1000000);
     }
 }

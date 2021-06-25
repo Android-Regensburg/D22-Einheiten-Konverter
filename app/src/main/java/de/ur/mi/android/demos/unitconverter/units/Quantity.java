@@ -1,9 +1,9 @@
 package de.ur.mi.android.demos.unitconverter.units;
 
 public enum Quantity {
-    TIME("Zeit"),
-    LENGTH("Länge"),
-    MASS("Masse");
+    TIME("Time"),
+    LENGTH("Length"),
+    MASS("Mass");
 
     public final String name;
 

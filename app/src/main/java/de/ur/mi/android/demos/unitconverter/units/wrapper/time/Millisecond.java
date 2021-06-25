@@ -1,21 +1,21 @@
 package de.ur.mi.android.demos.unitconverter.units.wrapper.time;
 
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.Unit;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class Millisecond extends UnitWrapper implements SICompatibleUnit {
+public class Millisecond extends SIValue {
 
     public Millisecond(double value) {
-        super(value, "m");
+        super(value, Unit.MILLISECOND);
     }
 
     @Override
-    public UnitWrapper toBaseUnit(UnitWrapper unitWrapper) {
+    public SIValue toBaseValue() {
         return new Second(this.value / 1000);
     }
 
     @Override
-    public UnitWrapper fromBaseUnit(UnitWrapper unitWrapper) {
-        return new Millisecond(unitWrapper.value * 1000);
+    public SIValue fromBaseValue(SIValue base) {
+        return new Millisecond(base.value * 1000);
     }
 }

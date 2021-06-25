@@ -1,21 +1,21 @@
 package de.ur.mi.android.demos.unitconverter.units.wrapper.length;
 
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.Unit;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class Centimetre extends UnitWrapper implements SICompatibleUnit {
+public class Centimetre  extends SIValue {
 
     public Centimetre(double value) {
-        super(value, "cm");
+        super(value, Unit.CENTIMETRE);
     }
 
     @Override
-    public UnitWrapper toBaseUnit(UnitWrapper unitWrapper) {
-        return new Meter(this.value / 100);
+    public SIValue toBaseValue() {
+        return new Metre(this.value / 100);
     }
 
     @Override
-    public UnitWrapper fromBaseUnit(UnitWrapper unitWrapper) {
-        return new Centimetre(unitWrapper.value * 100);
+    public SIValue fromBaseValue(SIValue base) {
+        return new Centimetre(base.value * 100);
     }
 }

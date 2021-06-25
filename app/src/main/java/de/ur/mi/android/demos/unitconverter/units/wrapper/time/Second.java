@@ -1,21 +1,21 @@
 package de.ur.mi.android.demos.unitconverter.units.wrapper.time;
 
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.Unit;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class Second extends UnitWrapper implements SICompatibleUnit {
+public class Second extends SIValue {
 
     public Second(double value) {
-        super(value, "s");
+        super(value, Unit.SECOND);
     }
 
     @Override
-    public UnitWrapper toBaseUnit(UnitWrapper unitWrapper) {
+    public SIValue toBaseValue() {
         return new Second(this.value);
     }
 
     @Override
-    public UnitWrapper fromBaseUnit(UnitWrapper unitWrapper) {
-        return new Second(unitWrapper.value);
+    public SIValue fromBaseValue(SIValue base) {
+        return new Second(base.value);
     }
 }

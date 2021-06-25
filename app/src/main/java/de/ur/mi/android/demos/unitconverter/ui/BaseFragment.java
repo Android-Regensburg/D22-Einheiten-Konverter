@@ -17,12 +17,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import de.ur.mi.android.demos.unitconverter.R;
+import de.ur.mi.android.demos.unitconverter.units.Collector;
 import de.ur.mi.android.demos.unitconverter.units.Quantity;
-import de.ur.mi.android.demos.unitconverter.units.SICompatibleUnit;
 import de.ur.mi.android.demos.unitconverter.units.Unit;
-import de.ur.mi.android.demos.unitconverter.units.wrapper.UnitWrapper;
+import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
 public class BaseFragment extends Fragment {
 
@@ -33,7 +35,7 @@ public class BaseFragment extends Fragment {
     private ResultAdapter resultAdapter;
 
     public BaseFragment(Quantity quantity) {
-        this.units = Unit.getUnitsForQuantity(quantity);
+        this.units = Collector.getUnitsForQuantity(quantity);
         selectedUnit = units[0];
     }
 
@@ -103,18 +105,9 @@ public class BaseFragment extends Fragment {
             return;
         }
         double value = Double.parseDouble(newInput);
-        UnitWrapper wrappedValue = selectedUnit.wrapValue(value);
-        ArrayList<UnitWrapper> convertedValues = getConvertedValuesFromInput(wrappedValue);
-        resultAdapter.setResults(convertedValues);
-    }
-
-    private ArrayList<UnitWrapper> getConvertedValuesFromInput(UnitWrapper unitWrapper) {
-        UnitWrapper wrappedBaseValue = ((SICompatibleUnit) unitWrapper).toBaseUnit(unitWrapper);
-        ArrayList<UnitWrapper> convertedUnits = new ArrayList<>();
-        for (Unit unit : units) {
-            convertedUnits.add(unit.wrapFromBaseValueWrapper(wrappedBaseValue));
-        }
-        return convertedUnits;
+        SIValue[] convertedValues = Collector.getConvertedValuesFor(value, selectedUnit);
+        List<SIValue> convertedValuesAsList = Arrays.asList(convertedValues);
+        resultAdapter.setResults(convertedValuesAsList);
     }
 
 

@@ -1,21 +1,21 @@
-package de.ur.mi.android.demos.unitconverter.units.wrapper.mass;
+package de.ur.mi.android.demos.unitconverter.units.wrapper.length;
 
 import de.ur.mi.android.demos.unitconverter.units.Unit;
 import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public class Kilogram extends SIValue {
+public class Metre extends SIValue {
 
-    public Kilogram(double value) {
-        super(value, Unit.KILOGRAM);
+    public Metre(double value) {
+        super(value, Unit.METRE);
     }
 
     @Override
     public SIValue toBaseValue() {
-        return new Kilogram(this.value);
+        return new Metre(this.value);
     }
 
     @Override
     public SIValue fromBaseValue(SIValue base) {
-        return new Kilogram(base.value);
+        return new Metre(base.value);
     }
 }
