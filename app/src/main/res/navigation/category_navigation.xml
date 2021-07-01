@@ -7,20 +7,40 @@
 
     <fragment
         android:id="@+id/navigation_length"
-        android:name="de.ur.mi.android.demos.unitconverter.ui.length.LengthFragment"
+        android:name="de.ur.mi.android.demos.unitconverter.ui.CalculatorFragment"
         android:label="@string/label_length"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_calculator">
+        <argument
+            android:name="quantity"
+            android:defaultValue="LENGTH"
+            app:argType="de.ur.mi.android.demos.unitconverter.units.Quantity" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_time"
-        android:name="de.ur.mi.android.demos.unitconverter.ui.time.TimeFragment"
+        android:name="de.ur.mi.android.demos.unitconverter.ui.CalculatorFragment"
         android:label="@string/label_time"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_calculator">
+
+        <argument
+            android:name="quantity"
+            android:defaultValue="TIME"
+            app:argType="de.ur.mi.android.demos.unitconverter.units.Quantity" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_mass"
-        android:name="de.ur.mi.android.demos.unitconverter.ui.mass.MassFragment"
+        android:name="de.ur.mi.android.demos.unitconverter.ui.CalculatorFragment"
         android:label="@string/label_mass"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_calculator">
+
+        <argument
+            android:name="quantity"
+            android:defaultValue="MASS"
+            app:argType="de.ur.mi.android.demos.unitconverter.units.Quantity" />
+
+    </fragment>
 
 </navigation>

@@ -26,7 +26,6 @@ public class Collector {
         SIValue baseValue = originalValue.toBaseValue();
         Unit[] targetUnits = Collector.getUnitsForQuantity(originalUnit.quantity);
         ArrayList<SIValue> targetValues = new ArrayList<>();
-        Log.d("UNITS", "Collecting transformedValues");
         for (Unit unit : targetUnits) {
             targetValues.add(SIValue.wrapBaseValue(baseValue, unit));
         }

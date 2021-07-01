@@ -13,36 +13,40 @@
     <!-- Main Content View -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/maximum_yellow_red">
 
         <TextView
             android:id="@+id/result_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintLeft_toLeftOf="parent"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintRight_toLeftOf="@+id/result_unit"
-            card_view:layout_constraintWidth_default="percent"
-            card_view:layout_constraintWidth_percent=".75"
+            android:fontFamily="sans-serif-black"
             android:textAlignment="textEnd"
+            android:textColor="@color/white"
             android:textSize="32sp"
-            android:fontFamily="sans-serif-black"/>
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintRight_toLeftOf="@+id/result_unit"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintWidth_default="percent"
+            card_view:layout_constraintWidth_percent=".75" />
 
         <TextView
             android:id="@+id/result_unit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintLeft_toRightOf="@+id/result_value"
+            android:padding="5dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="32sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@+id/result_value"
             card_view:layout_constraintRight_toRightOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
             card_view:layout_constraintWidth_default="percent"
-            card_view:layout_constraintWidth_percent=".25"
-            android:textAlignment="center"
-            android:textSize="32sp"/>
+            card_view:layout_constraintWidth_percent=".25" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

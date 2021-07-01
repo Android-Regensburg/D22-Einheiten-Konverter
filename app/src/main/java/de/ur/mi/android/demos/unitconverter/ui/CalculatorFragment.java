@@ -2,6 +2,7 @@ package de.ur.mi.android.demos.unitconverter.ui;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Layout;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,23 +27,30 @@ import de.ur.mi.android.demos.unitconverter.units.Quantity;
 import de.ur.mi.android.demos.unitconverter.units.Unit;
 import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;
 
-public abstract class BaseFragment extends Fragment {
+public class CalculatorFragment extends Fragment {
 
     private final static double DEFAULT_VALUE = 1.0;
-    private final Unit[] units;
+    private final static String QUANTITY_ARGUMENT_KEY = "quantity";
+    private Unit[] units;
     private EditText valueInput;
     private Unit selectedUnit;
     private ResultAdapter resultAdapter;
 
-    public BaseFragment(Quantity quantity) {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        initUnits();
+        return createAndInitFragment(inflater, container);
+    }
+
+    private void initUnits() {
+        Quantity quantity = (Quantity) getArguments().get(QUANTITY_ARGUMENT_KEY);
         this.units = Collector.getUnitsForQuantity(quantity);
         selectedUnit = units[0];
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_converter, container, false);
+    private View createAndInitFragment(LayoutInflater inflater, ViewGroup root) {
+        View fragmentView = inflater.inflate(R.layout.fragment_calculator, root, false);
         initResultList(fragmentView);
         initUnitSelector(fragmentView);
         initValueInput(fragmentView);
@@ -61,7 +69,7 @@ public abstract class BaseFragment extends Fragment {
         for (Unit unit : units) {
             labels.add(unit.label);
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, labels);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_unit_selector, labels);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner = fragmentView.findViewById(R.id.unit_select);
         spinner.setAdapter(adapter);
