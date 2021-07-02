@@ -13,6 +13,12 @@ import de.ur.mi.android.demos.unitconverter.R;
 
 public abstract class BaseFragment extends Fragment {
 
+    private String quantity;
+
+    public BaseFragment(String quantity) {
+        this.quantity = quantity;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
