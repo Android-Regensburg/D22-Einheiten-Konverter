@@ -11,19 +11,16 @@ import androidx.fragment.app.Fragment;
 
 import de.ur.mi.android.demos.unitconverter.R;
 
-public abstract class BaseFragment extends Fragment {
+public class CalculatorFragment extends Fragment {
 
-    private String quantity;
-
-    public BaseFragment(String quantity) {
-        this.quantity = quantity;
-    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_converter, container, false);
         // TODO Initialize UI components (events, ...)
+        String quantity = (String) getArguments().get("quantity");
+
         return fragmentView;
     }
 

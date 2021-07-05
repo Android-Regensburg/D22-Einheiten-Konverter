@@ -7,21 +7,45 @@
 
     <fragment
         android:id="@+id/navigation_length"
-        android:name="de.ur.mi.android.demos.unitconverter.ui.LengthFragment"
+        android:name="de.ur.mi.android.demos.unitconverter.ui.CalculatorFragment"
         android:label="@string/label_length"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_converter">
+
+        <argument
+            android:name="quantity"
+            app:argType="String"
+            android:defaultValue="Length"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_time"
-        android:name="de.ur.mi.android.demos.unitconverter.ui.TimeFragment"
+        android:name="de.ur.mi.android.demos.unitconverter.ui.CalculatorFragment"
         android:label="@string/label_time"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_converter">
+
+        <argument
+            android:name="quantity"
+            app:argType="String"
+            android:defaultValue="Time"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_mass"
-        android:name="de.ur.mi.android.demos.unitconverter.ui.MassFragment"
+        android:name="de.ur.mi.android.demos.unitconverter.ui.CalculatorFragment"
         android:label="@string/label_mass"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_converter">
+
+        <argument
+            android:name="quantity"
+            app:argType="String"
+            android:defaultValue="Mass"
+            />
+
+    </fragment>
 
 
 </navigation>
