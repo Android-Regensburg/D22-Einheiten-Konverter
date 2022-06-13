@@ -1,7 +1,5 @@
 package de.ur.mi.android.demos.unitconverter.units;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import de.ur.mi.android.demos.unitconverter.units.wrapper.SIValue;

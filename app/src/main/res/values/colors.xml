@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dodger_blue">#0496ff</color>
-    <color name="sapphire_blue">#006ba6</color>
-    <color name="maximum_yellow_red">#ffbc42</color>
-    <color name="ruby">#d81159</color>
-    <color name="quinacridone_magenta">#8f2d56</color>
-    <color name="black">#FF000000</color>
+    <color name="primary">#FFDA3C43</color>
+    <color name="primary_light">#FFE2656B</color>
+    <color name="primary_lighter">#FFF2BABD</color>
+    <color name="accent">#FFFCD757</color>
+    <color name="accent_light">#FFFDE89B</color>
+    <color name="black">#FF090C08</color>
+    <color name="dark">#FF272727</color>
+    <color name="light">#FFFAFAFA</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="shadow">#FFFEFEFE</color>
 </resources>
